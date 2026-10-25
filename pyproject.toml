@@ -6,8 +6,15 @@ readme = "README.md"
 authors = [
     { name = "jr", email = "141531877+jred-r@users.noreply.github.com" }
 ]
-requires-python = ">=3.14"
-dependencies = []
+requires-python = ">=3.13"
+dependencies = [
+    "black>=26.10.1",
+    "isort>=9.0.2",
+    "langchain>=1.4.7",
+    "langchain-openrouter>=0.2.9",
+    "langgraph>=1.2.17",
+    "python-dotenv>=1.2.4",
+]
 
 [project.scripts]
 ai-random = "ai_random:main"
