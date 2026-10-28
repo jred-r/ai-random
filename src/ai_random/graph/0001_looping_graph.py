@@ -44,4 +44,4 @@ app = graph.compile()
 Path("001.png").write_bytes(app.get_graph().draw_mermaid_png())
 data: AgentState = {"name": "J", "counter": 0, "number": []}
 result = app.invoke(data)
-print(result['number'])
+print(result["number"])
