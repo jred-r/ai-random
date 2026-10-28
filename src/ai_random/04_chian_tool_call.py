@@ -3,9 +3,11 @@ import os
 from dotenv import load_dotenv
 from langchain.messages import ToolMessage
 from langchain.tools import tool
-from langchain_core.prompts import (ChatPromptTemplate,
-                                    HumanMessagePromptTemplate,
-                                    SystemMessagePromptTemplate)
+from langchain_core.prompts import (
+    ChatPromptTemplate,
+    HumanMessagePromptTemplate,
+    SystemMessagePromptTemplate,
+)
 from langchain_openrouter import ChatOpenRouter
 
 load_dotenv()

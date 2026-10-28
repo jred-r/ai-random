@@ -1,8 +1,7 @@
 import os
 
 from dotenv import load_dotenv
-from langchain_core.prompts import (ChatPromptTemplate,
-                                    FewShotChatMessagePromptTemplate)
+from langchain_core.prompts import ChatPromptTemplate, FewShotChatMessagePromptTemplate
 from langchain_openrouter import ChatOpenRouter
 
 load_dotenv()

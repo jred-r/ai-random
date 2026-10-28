@@ -63,7 +63,6 @@ def build_graph(model_name: str):
     builder.add_edge(START, "call_model")
     builder.add_conditional_edges("call_model", tools_condition)
     builder.add_edge("tools", "call_model")
-    
 
     return builder.compile(checkpointer=InMemorySaver())
 

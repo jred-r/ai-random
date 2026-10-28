@@ -41,12 +41,12 @@ def build_graph():
 def main() -> None:
     app = build_graph()
     examples: list[AgentState] = [
-        {"name": "Jaswanth", "operation": "+", "values": [1, 2, 3, 4], "result": ""},
-        {"name": "Jaswanth", "operation": "*", "values": [1, 2, 3, 4], "result": ""},
+        {"name": "J", "operation": "+", "values": [1, 2, 3, 4], "result": ""},
+        {"name": "J", "operation": "*", "values": [1, 2, 3, 4], "result": ""},
     ]
 
     for data in examples:
-        print(app.invoke(data)['result'])
+        print(app.invoke(data)["result"])
 
 
 if __name__ == "__main__":
