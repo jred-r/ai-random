@@ -1,5 +1,5 @@
+import logging
 import os
-from pathlib import Path
 from typing import List, TypedDict, Union
 
 from dotenv import load_dotenv
@@ -8,6 +8,15 @@ from langchain_openrouter import ChatOpenRouter
 from langgraph.graph import END, START, StateGraph
 
 load_dotenv()
+
+logging.basicConfig(
+    filename="logging.txt",
+    filemode="w",
+    encoding="utf-8",
+    level=logging.INFO,
+    format="%(message)s",
+)
+logger = logging.getLogger(__name__)
 
 model = str(os.getenv("OPEN_ROUTER_MODEL"))
 llm = ChatOpenRouter(model=model, max_retries=3)
@@ -21,6 +30,7 @@ def process(state: AgentState) -> AgentState:
     response = llm.invoke(state["messages"])
     message = response.content
     print(f"AI : {message}")
+    logger.info("AI: %s", message)
     state["messages"].append(AIMessage(message))
     return state
 
@@ -33,11 +43,13 @@ app = graph.compile()
 
 conversation_history = []
 
+logger.info("Your conversation log")
 user_input = input("Enter: ")
 while user_input.lower() != "exit":
+    logger.info("You: %s", user_input)
     conversation_history.append(HumanMessage(user_input))
     response = app.invoke({"messages": conversation_history})
     conversation_history = response["messages"]
     user_input = input("Enter: ")
-    
+
 print("Thank you for using the bot!")
